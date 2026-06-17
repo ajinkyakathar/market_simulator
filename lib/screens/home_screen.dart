@@ -4,7 +4,7 @@ import '../providers/market_provider.dart';
 import '../utils/app_theme.dart';
 import 'market_screen.dart';
 import 'portfolio_screen.dart';
-import 'transactions_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,10 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final _screens = const [
     MarketScreen(),
     PortfolioScreen(),
-    TransactionsScreen(),
   ];
 
-  final _titles = const ['Market', 'Portfolio', 'History'];
+  final _titles = const ['Market', 'Portfolio'];
 
   @override
   Widget build(BuildContext context) {
@@ -70,13 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedIcon:
             Icon(Icons.pie_chart_rounded, color: AppTheme.accent),
             label: 'Portfolio',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.receipt_long_outlined),
-            selectedIcon:
-            Icon(Icons.receipt_long_rounded, color: AppTheme.accent),
-            label: 'History',
-          ),
+          )
         ],
       ),
     );

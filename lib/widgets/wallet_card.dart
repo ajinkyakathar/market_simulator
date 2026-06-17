@@ -52,14 +52,18 @@ class WalletCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          const Divider(color: Colors.white24, height: 1),
+          const Divider(
+            color: Colors.white24,
+            height: 1,
+          ),
           const SizedBox(height: 14),
-          Row(
-            children: [
-              _Stat(label: 'Portfolio', value: Formatters.price(p.portfolioValue)),
-              Container(width: 1, height: 32, color: Colors.white24),
-              _Stat(label: 'Net Worth', value: Formatters.price(p.netWorth)),
-            ],
+
+          // Portfolio Section Only
+          Center(
+            child: _Stat(
+              label: 'Portfolio',
+              value: Formatters.price(p.portfolioValue),
+            ),
           ),
         ],
       ),
@@ -71,24 +75,32 @@ class _Stat extends StatelessWidget {
   final String label;
   final String value;
 
-  const _Stat({required this.label, required this.value});
+  const _Stat({
+    required this.label,
+    required this.value,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        children: [
-          Text(label,
-              style: const TextStyle(color: Colors.white54, fontSize: 11)),
-          const SizedBox(height: 4),
-          Text(value,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-              )),
-        ],
-      ),
+    return Column(
+      children: [
+        Text(
+          label,
+          style: const TextStyle(
+            color: Colors.white54,
+            fontSize: 11,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          value,
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -80,7 +80,6 @@ class MarketProvider extends ChangeNotifier {
     return total;
   }
 
-  double get netWorth => balance + portfolioValue;
 
   String? buy(String stockId, int qty) {
     if (qty <= 0) return 'Enter a valid quantity';
